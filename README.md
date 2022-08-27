@@ -9,7 +9,7 @@ First part is to generate site certificate and second part is to configure NGINX
  openssl genrsa -out "rootca.key" 4096
 ```
 
-2. Genrate a CSR using the key you reated in step 1:
+2. Genrate a Certificate Signing Request (CSR using) the root CA you reated in step 1:
 
 ```bash
 openssl req \
@@ -28,5 +28,14 @@ keyUsage = critical, nonRepudiation, cRLSign, keyCertSign
 subjectKeyIdentifier=hash
 ```
 
+4. Sign CSR created in step 2:
+
+
+```bash
+ openssl x509 -req  -days 3650  -in "rootca.csr" \
+               -signkey "root-ca.key" -sha256 -out "root-ca.crt" \
+               -extfile "root-ca.cnf" -extensions \
+               root_ca
+```
 
 ## Using the secret in Docker
