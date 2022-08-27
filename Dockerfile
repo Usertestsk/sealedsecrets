@@ -2,6 +2,8 @@
 FROM progrium/busybox
 RUN opkg-install curl bash git
 CMD ["/bin/bash"]
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY site.conf /etc/nginx/conf.d/site.conf
 
 # Set Dockerfile Maintainer
 MAINTAINER User_Tests_Kuberneres
