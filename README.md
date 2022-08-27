@@ -1,5 +1,8 @@
-# sealedsecrets
-Follow these steps:
+# Using secrets with NGINX
+First part is to generate site certificate and second part is to configure NGINX to use the certificate and how to use secrets in Docker.
+
+## Generating Certificate:
+
 1. Generate a root CA for your domain:
 
 ```bash
@@ -24,3 +27,6 @@ basicConstraints = critical,CA:TRUE,pathlen:1
 keyUsage = critical, nonRepudiation, cRLSign, keyCertSign
 subjectKeyIdentifier=hash
 ```
+
+
+## Using the secret in Docker
