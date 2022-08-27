@@ -33,9 +33,17 @@ subjectKeyIdentifier=hash
 
 ```bash
  openssl x509 -req  -days 3650  -in "rootca.csr" \
-               -signkey "root-ca.key" -sha256 -out "root-ca.crt" \
-               -extfile "root-ca.cnf" -extensions \
-               root_ca
+               -signkey "rootca.key" -sha256 -out "rootca.crt" \
+               -extfile "rootca.cnf" -extensions server
 ```
 
 ## Using the secret in Docker
+
+
+2. Crete secrets in Docker
+
+```bash
+ docker secret create site.key site.key
+ docker secret create site.crt site.crt
+ docker secret create site.conf site.conf
+ ```
