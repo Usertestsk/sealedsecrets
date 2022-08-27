@@ -1,4 +1,4 @@
-# Using secrets with NGINX
+# Using secrets with cert and Docker secrets
 First part is to generate site certificate and second part is to configure NGINX to use the certificate and how to use secrets in Docker.
 
 ## Generating Certificate:
