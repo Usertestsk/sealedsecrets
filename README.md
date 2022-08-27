@@ -12,5 +12,15 @@ Follow these steps:
 openssl req \
           -new -key "rootca.key" \
           -out "rootca.csr" -sha256 \
-          -subj '/C=US/ST=CA/L=San Francisco/O=Docker/CN=Swarm Secret Example CA'
+          -subj '/C=US/ST=CA/L=San Francisco/O=UserT/CN=*.usertestsk.com'
+```
+
+
+3. Create an intermediate certificate that can only sign end certificates but not further CAs:
+
+```bash
+[root_ca]
+basicConstraints = critical,CA:TRUE,pathlen:1
+keyUsage = critical, nonRepudiation, cRLSign, keyCertSign
+subjectKeyIdentifier=hash
 ```
