@@ -39,8 +39,9 @@ subjectKeyIdentifier=hash
 
 ## Using the secret in Docker
 
+1. Add certicificate and certificate key as that you could consume them as docker secrets.
 
-2. Crete secrets in Docker
+2. Crete secrets in Docker representing your key, CRT and site.conf:
 
 ```bash
  docker secret create site.key site.key
